@@ -1,0 +1,20 @@
+{
+  "name": "dashboardviewer",
+  "version": "1.0.0",
+  "description": "Visor de Modelos con Dashboard personalizado",
+  "main": "index.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ing. Felix Enzo Garofalo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "forge-apis": "^0.7.3",
+    "frappe-gantt": "^0.5.0",
+    "multer": "^1.4.2",
+    "server": "^1.0.31"
+  }
+}
