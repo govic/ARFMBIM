@@ -250,65 +250,151 @@
 
 					<!-- row opened -->
 				
- 				<div class="row row-sm">
- 					<div class="col-md-12 col-lg-12 col-lg-12">
- 						<div class="card card-dashboard-map-one">
-								<label class="main-content-label">Carpetas de Proyecto</label>
-								<span class="d-block mg-b-20 text-muted tx-12">Seleccione el proyecto a Visualizar</span>
-								<div class="">
-									  	   <div >
-										            <div class="container-fluid fill">
-										              <div class="row fill">
-										                <div class="col-sm-12 fill">
-										                  <div class="panel panel-default fill">
-										                    <div class="panel-heading" data-toggle="tooltip">
-										                      Proyectos
-										                      <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
-										                      
-										                    </div>
-										                    <div id="appBuckets">
-										                      Tree here
-										                    </div>
-										                  </div>
-										                </div>
-										                <div class="col-sm-7">
-										                  
-										                  <div class="row">
-										                   
-										                  </div>
-										                </div>                
-										              </div>
-										            </div>
-										            <form id="uploadFile" method='post' enctype="multipart/form-data">
-										              <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
-										            </form>
-										        
-										            <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										              <div class="modal-dialog" role="document">
-										                <div class="modal-content">
-										                  <div class="modal-header">
-										                    <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
-										                      <span aria-hidden="true">&times;</span>
-										                    </button>
-										                    <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
-										                  </div>
-										                  <div class="modal-body">
-										                    <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
-										                    NOT automatically translated. After you upload, right click on
-										                    the object and select "Translate". Bucket keys must be of the form [-_.a-z0-9]{3,128}
-										                  </div>
-										                  <div class="modal-footer">
-										                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										                    <button type="button" class="btn btn-primary" id="createNewBucket">Crear Carpeta</button>
-										                  </div>
-										                </div>
-										              </div>
-										            </div>
-										          </div>
-								</div>
-							</div>
- 					</div>
- 				</div>
+					<div class="row row-sm">
+						<div class="col-md-12 col-lg-12 col-lg-12">
+							<div class="card card-dashboard-map-one">
+								   <label class="main-content-label">Proyectos</label>
+								   <span class="d-block mg-b-20 text-muted tx-12">Directorio de Proyectos disponibles</span>
+								   
+								   <div class="">
+												<div >
+													   <div class="container-fluid fill">
+														 <div class="row fill">
+														   <div class="col-sm-4 fill">
+															 <div class="panel panel-default fill">
+															   <div class="panel-heading" data-toggle="tooltip">
+																 Proyectos
+																 <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+																
+																<!--
+																 <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+																   Nueva Carpeta
+																 </button>
+					
+																 -->
+															   </div>
+															   <div id="appBuckets">
+																Arbol de Carpetas
+															   </div>
+															 </div>
+														   </div>
+														   <div class="col-sm-7 fill">
+															   <div id="forgeViewer"></div>
+														   </div>
+														   <div class="col-sm-7">
+															 
+															 <div class="row">
+															   
+															 </div>
+														   </div>                
+														 </div>
+													   </div>
+													   <form id="uploadFile" method='post' enctype="multipart/form-data">
+														 <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
+													   </form>
+							   
+												   <div class="row">
+													   
+													   <div class="col-sm-12">
+														  <!--  <button class="btn btn-success btn-block"  id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">Crear Nueva Carpeta - Proyecto</button>
+														  -->
+														  <div class="tab-content border-left border-bottom border-right border-top-0 p-4">
+										
+
+															<div class="tab-pane active" id="settings">
+																<form role="form" action="/profile" method="POST">
+																	<div class="form-group">
+																		<label for="FullName">Nombre Tarea</label>
+																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																	</div>
+																	<div class="form-group">
+																		<label for="Email">Responsable</label>
+																		<select class="form-control" name="username">
+																			<option value="">Encargado tipo 1</option>
+																			<option value="">Encargado tipo 2</option>
+																			<option value="">Encargado tipo 3</option>
+																		</select>
+																	</div>
+																	<div class="form-group">
+																		<label for="FullName">Nombre Tarea</label>
+																		<textarea class="form-control" name="fullname"></textarea>
+																	</div>
+																	<div class="form-group">
+																		<label for="FullName">Fecha</label>
+																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																	</div>
+																	
+																	<button class="btn btn-primary waves-effect waves-light w-md" type="submit">Guardar</button>
+																</form>
+															</div>
+															<div class="tab-pane " id="home">
+																<h4 class="tx-15 text-uppercase mb-3">Datos</h4>
+																<p class="m-b-5">Datos Adicionales  Datos Adicionales  Datos Adicionales </p>
+																<div class="m-t-30">
+																	<h4 class="tx-15 text-uppercase mt-3">Datos</h4>
+																	<div class=" p-t-10">
+																		<h5 class="text-primary m-b-5 tx-14">Datos Adicionales </h5>
+																		
+																	</div>
+																	<hr>
+																	<div class="">
+																		<h5 class="text-primary m-b-5 tx-14">Datos Adicionales </h5>
+																		<p class="">Datos Adicionales </p>
+																		
+																	</div>
+																</div>
+															</div>
+															
+															
+														</div>
+													   </div>
+													   
+												   </div>
+												   <div class="row">
+													   <div class="col-sm-4">
+														   
+															   </div>
+													   <div class="col-sm-4">
+														   </div>
+													   <div class="col-sm-4">
+														   
+					
+													   </div>
+												   </div>
+												
+												   <br><br><br><br><br>
+												   <div class="row">
+												   
+													   <div class="col-sm-4">
+														   <select id="proyectos_disponibles"></select>
+													   </div>
+													   <div class="col-sm-4">
+														  <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
+													   --></div>
+												   </div>
+													   <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+														 <div class="modal-dialog" role="document">
+														   <div class="modal-content">
+															 <div class="modal-header">
+															   
+															   <br>
+															   <!-- <h4 class="modal-title" id="myModalLabel">Crear Nueva Carpeta</h4>
+															   --></div>
+															 <div class="modal-body">
+															   <input type="text" id="newBucketKey" class="form-control"> Crea Una nueva Carpeta para almacenamiento de proyectos
+															 </div>
+															 <div class="modal-footer">
+															   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+															   <button type="button" class="btn btn-primary" id="createNewBucket">Crear Carpeta</button>
+															 </div>
+														   </div>
+														 </div>
+													   </div>
+													 </div>
+								   </div>
+							   </div>
+						</div>
+					</div>
 					<!-- row opened -->
 		
 					<!-- /row -->

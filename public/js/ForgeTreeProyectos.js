@@ -72,7 +72,7 @@ function openViewer(urn){
           headers: { 'Authorization': 'Bearer ' + access_token },
           success: function (res) {
             if (res.status === 'success') launchViewer(urn);
-            else $("#forgeViewer").html('The translation job still running: ' + res.progress + '. Please try again in a moment.');
+            else $("#forgeViewer").html('La traducción está en curso: ' + res.progress + '. Por favor vuelva a intentarlo en unos minutos..');
           },
           error: function (err) {
             var msgButton = 'This file is not translated yet! ' +
@@ -144,7 +144,7 @@ function prepareAppBucketTree() {
           headers: { 'Authorization': 'Bearer ' + access_token },
           success: function (res) {
             if (res.status === 'success') launchViewer(urn);
-            else $("#forgeViewer").html('The translation job still running: ' + res.progress + '. Please try again in a moment.');
+            else $("#forgeViewer").html('La traducción está en curso: ' + res.progress + '. Por favor vuelva a intentarlo en unos minutos..');
           },
           error: function (err) {
             var msgButton = 'This file is not translated yet! ' +
@@ -204,7 +204,7 @@ function translateObject(node) {
     contentType: 'application/json',
     data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
     success: function (res) {
-      $("#forgeViewer").html('Translation started! Please try again in a moment.');
+      $("#forgeViewer").html('TransLPor favor vuelva a intentarlo en unos minutos..');
     },
   });
 }
