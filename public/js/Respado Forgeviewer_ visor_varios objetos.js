@@ -159,9 +159,26 @@ function launchViewer(urn) {
     viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['Autodesk.DocumentBrowser', 'HandleSelectionExtension'] });
     viewer.start();
     var documentId = 'urn:' + urn;
-    
-    Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-   
+    var list_urn = [
+
+      { urn: "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHRmZ2EzcXNua283aDhhMGI3Y2VneWljdmVqY2t4ejYtdGVzdC9TQU4lMjBDQVNBJTIwNDUlMjBtMiUyMFJFVi4wMC5ydnQ=" , xform: {x:0,y:0,z:0}},
+      { urn: "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHRmZ2EzcXNua283aDhhMGI3Y2VneWljdmVqY2t4ejYtdGVzdC9FTEVDJTIwNDUlMjBtMiUyMFJFVi4wMS5ydnQ=" , xform: {x:0,y:0,z:0}},
+      { urn: "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHRmZ2EzcXNua283aDhhMGI3Y2VneWljdmVqY2t4ejYtdGVzdC9BUlElMjBDQVNBJTIwNDUlMjBtMiUyMFJFVi4wMC5ydnQ=", xform: {x:0,y:0,z:0} },
+     ];
+    list_urn.map((m)=>{
+      Autodesk.Viewing.Document.load(`urn:${m.urn}`, (doc) => {
+          var viewables = doc.getRoot().getDefaultGeometry();
+          viewer.loadDocumentNode(doc, viewables,{
+              preserveView: true,
+              keepCurrentModels: true,
+              placementTransform: (new THREE.Matrix4()).setPosition(m.xform),
+              keepCurrentModels: true,
+              globalOffset: {x:0,y:0,z:0}
+          })
+          
+      });
+
+  })
    
   //  Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (event) => { 

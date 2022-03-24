@@ -1,7 +1,11 @@
+var MyVars = {
+  keepTrying: true,
+  ajaxCalls: []
+};
 
 $(document).ready(function () {
  prepareAppBucketTree();
- 
+ callProyectosSeleccion();
   $('#refreshBuckets').click(function () {
     $('#appBuckets').jstree(true).refresh();
   });
@@ -33,6 +37,8 @@ $(document).ready(function () {
           type: 'POST',
           success: function (data) {
             $('#appBuckets').jstree(true).refresh_node(node);
+            $("#notificaciones").empty();
+            $("#notificaciones").html("Archivo "+ "subido exitosamente");
             _this.value = '';
           }
         });
@@ -41,28 +47,53 @@ $(document).ready(function () {
   });
 });
 
-function callProyectos(){
-   $("#forgeViewer").empty();
-     getForgeToken(function (access_token) {
-        jQuery.ajax({
-          url: '/api/forge/oss/bucketsProyectos',
-          headers: { 'Authorization': 'Bearer ' + access_token },
-          success: function (res) {
-            console.log(res);
-            let dropdown = "";
-             for (i = 0; i < res.length; i++) {
-                dropdown = dropdown+ "<a href='#' class='dropdown-item' onclick='openViewer("+"\""+res[i].urn+"\""+")'>"+res[i].objectKey+"</a>"
-                if(i==0){
-                    openViewer(res[i].urn);
-                }
-             }  
-             document.getElementById("proyectos_visor").innerHTML = dropdown;
-          },
-          error: function (err) {
-            
-          }
-        });
-      })
+function savePoryecto(){
+
+}
+function cargarProyecto(){
+  
+  var q =  document.getElementById("proyectos_disponibles").value;
+ // alert(q);
+
+  console.log("DATA NOMBRE");
+  console.log(q);
+  console.log("DATA IDS");
+  console.log(q);
+
+  jQuery.post({
+    url: '/vista',
+    contentType: 'application/json',
+    data:  JSON.stringify({ 'nombre': q}),
+    success: function (res) {
+      
+    },
+  });
+
+}
+
+function callProyectosSeleccion(){
+  $("#forgeViewer").empty();
+    getForgeToken(function (access_token) {
+       jQuery.ajax({
+         url: '/api/forge/oss/bucketsProyectos',
+         headers: { 'Authorization': 'Bearer ' + access_token },
+         success: function (res) {
+           console.log(res);
+           let dropdown = "";
+            for (i = 0; i < res.length; i++) {
+              
+             dropdown = dropdown+  "<option class='slide-item' href='#' value='"+res[i].urn+"'>"+res[i].objectKey+"</option>";
+             // dropdown = dropdown+ "<a href='#' class='dropdown-item' onclick='openViewer("+"\""+res[i].urn+"\""+")'>"+res[i].objectKey+"</a>"
+               
+            }  
+            document.getElementById("proyectos_disponibles").innerHTML = dropdown;
+         },
+         error: function (err) {
+           console.log("error");
+           console.log(err);
+         }
+       });
+     })
 }
 function openViewer(urn){
    launchViewer(urn);
@@ -75,9 +106,9 @@ function openViewer(urn){
             else $("#forgeViewer").html('La traducción está en curso: ' + res.progress + '. Por favor vuelva a intentarlo en unos minutos..');
           },
           error: function (err) {
-            var msgButton = 'This file is not translated yet! ' +
+            var msgButton = 'Este archivo no ha sido traducido aún! ' +
               '<button class="btn btn-xs btn-info" onclick="translateObject()"><span class="glyphicon glyphicon-eye-open"></span> ' +
-              'Start translation</button>'
+              'Iniciar Traducción</button>'
             $("#forgeViewer").html(msgButton);
           }
         });
@@ -147,9 +178,9 @@ function prepareAppBucketTree() {
             else $("#forgeViewer").html('La traducción está en curso: ' + res.progress + '. Por favor vuelva a intentarlo en unos minutos..');
           },
           error: function (err) {
-            var msgButton = 'This file is not translated yet! ' +
+            var msgButton = 'Este Archivo no ha sido traducido aún! ' +
               '<button class="btn btn-xs btn-info" onclick="translateObject()"><span class="glyphicon glyphicon-eye-open"></span> ' +
-              'Start translation</button>'
+              'Iniciar Traducción</button>'
             $("#forgeViewer").html(msgButton);
           }
         });
@@ -157,10 +188,26 @@ function prepareAppBucketTree() {
     }
   });
 }
+function traduceObjeto(){
 
+    var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
+            translateObject(treeNode);
+}
+function uploadArchivo(){
+  items = {
+    uploadFile: {
+      label: "Upload file",
+      action: function () {
+        uploadFile();
+      },
+      icon: 'glyphicon glyphicon-cloud-upload'
+    }
+  };
+
+}
 function autodeskCustomMenu(autodeskNode) {
   var items;
-
+  MyVars.selectedNode = autodeskNode;
   switch (autodeskNode.type) {
     case "bucket":
       items = {
@@ -176,10 +223,20 @@ function autodeskCustomMenu(autodeskNode) {
     case "object":
       items = {
         translateFile: {
-          label: "Translate",
+          label: "Traducir",
           action: function () {
+            // BUSCA OBJETO SELECCIONADO
             var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
             translateObject(treeNode);
+          },
+          icon: 'glyphicon glyphicon-eye-open'
+        },
+        deleteFile: {
+          label: "Eliminar",
+          action: function () {
+            // BUSCA OBJETO SELECCIONADO
+            var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
+            deleteFile(treeNode);
           },
           icon: 'glyphicon glyphicon-eye-open'
         }
@@ -192,9 +249,13 @@ function autodeskCustomMenu(autodeskNode) {
 
 function uploadFile() {
   $('#hiddenUploadField').click();
+  $("#notificaciones").empty();
+  $("#notificaciones").html("Se ha iniciado el proceso de subida espere unos instantes");
+
 }
 
 function translateObject(node) {
+  $("#notificaciones").empty();
   $("#forgeViewer").empty();
   if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
   var bucketKey = node.parents[0];
@@ -204,8 +265,59 @@ function translateObject(node) {
     contentType: 'application/json',
     data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
     success: function (res) {
-      $("#forgeViewer").html('TransLPor favor vuelva a intentarlo en unos minutos..');
+      $("#forgeViewer").html('Traducción Iniciada, espere unos instantes..');
     },
   });
 }
 
+function deleteObject(node) {
+  $("#forgeViewer").empty();
+  if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
+  var bucketKey = node.parents[0];
+  var objectKey = node.id;
+  jQuery.post({
+    url: '/api/forge/oss/deleteObject',
+    contentType: 'application/json',
+    data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
+    success: function (res) {
+      $("#forgeViewer").html('Por favor vuelva a intentarlo en unos minutos..');
+    },error: function (err) {
+      console.log(err);
+    }
+  });
+}
+function deleteFile(node){
+  var objectKey = node.text;
+  var bucketKey = node.parents[0];
+  var objectID = node.id;
+
+  console.log("data pre borrado");
+  console.log(objectKey);
+  console.log(objectID);
+ 
+  $("#notificaciones").html(" Se ha iniciado el proceso de  borrado para "+ objectKey);
+  
+    getForgeToken(function (access_token) {
+          jQuery.post({
+          url: '/api/forge/oss/deleteObject',
+          contentType: 'application/json',
+          data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),function(data, textStatus)
+          {
+            $("#notificaciones").html("Gestionado Borrado "+objectKey);
+          },
+          success: function (res) {
+       
+            $("#notificaciones").empty();
+            $("#notificaciones").html(objectKey+" Ha sido borrado exitosamente");
+            
+          },error: function (err) {
+            console.log(err);
+            $("#notificaciones").empty();
+            $("#notificaciones").html(objectKey+" Ha sido borrado exitosamente");
+            $('#appBuckets').jstree(true).refresh();
+            $("#forgeViewer").empty();
+          }
+        });
+
+     })
+}

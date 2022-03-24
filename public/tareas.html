@@ -96,7 +96,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">Visualizador</span>
 							</a>
 						</li>
-						
+					
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="selector.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">BIM</span></a>
 						</li>
@@ -269,190 +269,110 @@
 
 					<!-- row opened -->
 				
-					<div class="row row-sm">
-						<div class="col-md-12 col-lg-12 col-lg-12">
-							<div class="card card-dashboard-map-one">
-								   <label class="main-content-label">Proyectos</label>
-								   <span class="d-block mg-b-20 text-muted tx-12">Directorio de Proyectos disponibles</span>
-								   
-								   <div class="">
-												<div >
-													   <div class="container-fluid fill">
-														 <div class="row fill">
-														   <div class="col-sm-4 fill">
-															 <div class="panel panel-default fill">
-															   <div class="panel-heading" data-toggle="tooltip">
-																 Proyectos
-																 <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
-																
-																<!--
-																 <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
-																   Nueva Carpeta
-																 </button>
-					
-																 -->
-															   </div>
-															   <div id="appBuckets">
-																Arbol de Carpetas
-															   </div>
-															   <br><br><br><br><br><br><br><br><br><br>
-															 </div>
-														   </div>
-														   <div class="col-sm-7 fill">
-															   <div id="forgeViewer"></div>
-														   </div>
-														   <div class="col-sm-7">
-															 
-															 <div class="row">
-															   
-															 </div>
-														   </div>                
-														 </div>
-													   </div>
-													   <form id="uploadFile" method='post' enctype="multipart/form-data">
-														 <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
-													   </form>
-							   
-												   <div class="row">
-													   
-													   <div class="col-sm-12">
-														  <!--  <button class="btn btn-success btn-block"  id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">Crear Nueva Carpeta - Proyecto</button>
-														  -->
-														  <div class="tab-content border-left border-bottom border-right border-top-0 p-4">
-										
+ 				<div class="row row-sm">
+ 					<div class="col-md-12 col-lg-12 col-lg-12">
+ 						<div class="card card-dashboard-map-one">
+							<div class="tabs-menu ">
 
-														
-															<div class="tab-pane " id="home">
-																<h4 class="tx-15 text-uppercase mb-3">Datos</h4>
-																<p class="m-b-5">Datos Adicionales  Datos Adicionales  Datos Adicionales </p>
-																<div class="m-t-30">
-																	<h4 class="tx-15 text-uppercase mt-3">Datos</h4>
-																	<div class=" p-t-10">
-																		<h5 class="text-primary m-b-5 tx-14">Datos Adicionales </h5>
-																		
-																	</div>
-																	<hr>
-																	<div class="">
-																		<h5 class="text-primary m-b-5 tx-14">Datos Adicionales </h5>
-																		<p class="">Datos Adicionales </p>
-																		
-																	</div>
-																</div>
-															</div>
-															
-															
-														</div>
-													   </div>
-													   
-												   </div>
-												   <div class="row">
-													   <div class="col-sm-4">
-														   
-															   </div>
-													   <div class="col-sm-4">
-														   </div>
-													   <div class="col-sm-4">
-														   
-					
-													   </div>
-												   </div>
-												
+								<!-- Tabs -->
+								<ul class="nav nav-tabs profile navtab-custom panel-tabs">
+									<li class="active">
+										<a href="#settings" data-toggle="tab" aria-expanded="true"> <span class="visible-xs"><i class="las la-cog tx-16 mr-1"></i></span> <span class="hidden-xs">TAREA POR ROL</span> </a>
+									</li>
+									<li class="">
+										<a href="#home" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="fa fa-align-right"></i></span> <span class="hidden-xs">TAREA ASOCIADA A OBJ. </span> </a>
+									</li>
+									
+									
+								</ul>
+							</div>
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="settings">
+									<form role ="form" action="" method="POST">
+										<div class="form-group">
+											<label for="date_form">FECHA</label>
+											<input type="date" class="form-control">
+											<label for="rol_form">ROL</label>
+											<select name="ROL" id="cmbbox-rol" class="form-control">
+												<option>ELECTRICO</option>
+												<option>CLIMATIZACIÓN</option>
+												<option>ROL</option>
+											</select>
+											<label for="descp_form">DESCRIPCION</label>
+											<input type="text" class="form-control">
+											<label for="recursos_form">RECURSOS</label>
+											<input type="text" class="form-control">
+										</div> 
+
+										<button class="btn btn-primary waves-effect waves-light w-md">CREAR</button>
+									</form>
+								
+								</div>
+								<div class="tab-pane" id="home">
+
+									<div >
+										<div class="container-fluid fill">
+										  <div class="row fill">
+											<div class="col-sm-4 fill">
+											  <div class="panel panel-default fill">
+												<div class="panel-heading" data-toggle="tooltip">
+												  Proyectos
+												  <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
 												 
-												   <div class="row">
-												   
-													   <div class="col-sm-4">
-														  
+												 <!--
+												  <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+													Nueva Carpeta
+												  </button>
+	 
+												  -->
+												</div>
+												<div id="appBuckets">
+												 Arbol de Carpetas
+												</div>
+											  </div>
+											</div>
+											<div class="col-sm-7 fill">
+												<div id="forgeViewer"></div>
+											</div>
+											<div class="col-sm-7">
+											  
+											  <div class="row">
 												
-														   
-													   </div>
-													   <div class="col-sm-4">
-														
-														  <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
-													   --></div>
-												   </div>
-												   <div class="row">
-													<div class="col-xl-12">
-														<div class="card">
-															<div class="card-header pb-0">
-																<div class="d-flex justify-content-between">
-																	<h4 class="card-title mg-b-0">Administración de Datos</h4>
-																	<i class="mdi mdi-dots-horizontal text-gray"></i>
-																</div>
-																<p class="tx-12 tx-gray-500 mb-2">Seleccione Proyecto
-																		<select id="proyectos_disponibles"></select>
-															</div>
-															<div class="card-body">
-																<div class="table-responsive">
-																	<table class="table table-hover mb-0 text-md-nowrap">
-																		<thead>
-																			<tr>
-																				<th>ID</th>
-																				<th>Name</th>
-																				<th>Position</th>
-																				<th>Salary</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr>
-																				<th scope="row">1</th>
-																				<td>Tiger Nixon</td>
-																				<td>System Architect</td>
-																				<td>$320,800</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">2</th>
-																				<td>Garrett Winters</td>
-																				<td>Accountant</td>
-																				<td>$170,750</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">3</th>
-																				<td>Ashton Cox</td>
-																				<td>Junior Technical Author</td>
-																				<td>$86,000</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">4</th>
-																				<td>Cedric Kelly</td>
-																				<td>Senior Javascript Developer</td>
-																				<td>$433,060</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">5</th>
-																				<td>Airi Satou</td>
-																				<td>Accountant</td>
-																				<td>$162,700</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
-												   </div>
-													   <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-														 <div class="modal-dialog" role="document">
-														   <div class="modal-content">
-															 <div class="modal-header">
-															   
-															   <br>
-															   <!-- <h4 class="modal-title" id="myModalLabel">Crear Nueva Carpeta</h4>
-															   --></div>
-															 <div class="modal-body">
-															   <input type="text" id="newBucketKey" class="form-control"> Crea Una nueva Carpeta para almacenamiento de proyectos
-															 </div>
-															 <div class="modal-footer">
-															   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-															   <button type="button" class="btn btn-primary" id="createNewBucket">Crear Carpeta</button>
-															 </div>
-														   </div>
-														 </div>
-													   </div>
-													 </div>
-								   </div>
-							   </div>
+											  </div>
+											</div>                
+										  </div>
+										</div>
+									</div>
+										<form id="uploadFile" method='post' enctype="multipart/form-data">
+										  <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
+										</form>
+									<form role ="form" action="" method="POST">
+										<div class="form-group">
+											<label for="date_form">FECHA</label>
+											<input type="date" class="form-control">
+											<label for="rol_form">RESPONSABLE</label>
+											<select name="ROL" id="cmbbox-rol" class="form-control">
+												<option>PRUEBA</option>
+												<option>PRUEBA</option>
+												<option>PRUEBA</option>
+											</select>
+											<label for="descp_form">DESCRIPCION</label>
+											<input type="text" class="form-control">
+											<label for="recursos_form">RECURSOS</label>
+											<input type="text" class="form-control">
+										</div> 
+
+										<button class="btn btn-primary waves-effect waves-light w-md">CREAR</button>
+									</form>
+								
+								</div>
+
+							</div>
 						</div>
-					</div>
+ 					</div>
+ 				</div>
 					<!-- row opened -->
 		
 					<!-- /row -->

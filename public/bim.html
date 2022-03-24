@@ -98,7 +98,7 @@
 						</li>
 						
 						<li class="slide">
-							<a class="side-menu__item" data-toggle="slide" href="selector.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">BIM</span></a>
+							<a class="side-menu__item" data-toggle="slide" href="bim.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">BIM</span></a>
 						</li>
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="tareas.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Tareas</span></a>
@@ -295,7 +295,6 @@
 															   <div id="appBuckets">
 																Arbol de Carpetas
 															   </div>
-															   <br><br><br><br><br><br><br><br><br><br>
 															 </div>
 														   </div>
 														   <div class="col-sm-7 fill">
@@ -321,7 +320,32 @@
 														  <div class="tab-content border-left border-bottom border-right border-top-0 p-4">
 										
 
-														
+															<div class="tab-pane active" id="settings">
+																<form role="form" action="/profile" method="POST">
+																	<div class="form-group">
+																		<label for="FullName">Nombre Tarea</label>
+																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																	</div>
+																	<div class="form-group">
+																		<label for="Email">Responsable</label>
+																		<select class="form-control" name="username">
+																			<option value="">Encargado tipo 1</option>
+																			<option value="">Encargado tipo 2</option>
+																			<option value="">Encargado tipo 3</option>
+																		</select>
+																	</div>
+																	<div class="form-group">
+																		<label for="FullName">Nombre Tarea</label>
+																		<textarea class="form-control" name="fullname"></textarea>
+																	</div>
+																	<div class="form-group">
+																		<label for="FullName">Fecha</label>
+																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																	</div>
+																	
+																	<button class="btn btn-primary waves-effect waves-light w-md" type="submit">Guardar</button>
+																</form>
+															</div>
 															<div class="tab-pane " id="home">
 																<h4 class="tx-15 text-uppercase mb-3">Datos</h4>
 																<p class="m-b-5">Datos Adicionales  Datos Adicionales  Datos Adicionales </p>
@@ -357,78 +381,15 @@
 													   </div>
 												   </div>
 												
-												 
+												   <br><br><br><br><br>
 												   <div class="row">
 												   
 													   <div class="col-sm-4">
-														  
-												
-														   
+														   <select id="proyectos_disponibles"></select>
 													   </div>
 													   <div class="col-sm-4">
-														
 														  <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
 													   --></div>
-												   </div>
-												   <div class="row">
-													<div class="col-xl-12">
-														<div class="card">
-															<div class="card-header pb-0">
-																<div class="d-flex justify-content-between">
-																	<h4 class="card-title mg-b-0">Administración de Datos</h4>
-																	<i class="mdi mdi-dots-horizontal text-gray"></i>
-																</div>
-																<p class="tx-12 tx-gray-500 mb-2">Seleccione Proyecto
-																		<select id="proyectos_disponibles"></select>
-															</div>
-															<div class="card-body">
-																<div class="table-responsive">
-																	<table class="table table-hover mb-0 text-md-nowrap">
-																		<thead>
-																			<tr>
-																				<th>ID</th>
-																				<th>Name</th>
-																				<th>Position</th>
-																				<th>Salary</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr>
-																				<th scope="row">1</th>
-																				<td>Tiger Nixon</td>
-																				<td>System Architect</td>
-																				<td>$320,800</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">2</th>
-																				<td>Garrett Winters</td>
-																				<td>Accountant</td>
-																				<td>$170,750</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">3</th>
-																				<td>Ashton Cox</td>
-																				<td>Junior Technical Author</td>
-																				<td>$86,000</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">4</th>
-																				<td>Cedric Kelly</td>
-																				<td>Senior Javascript Developer</td>
-																				<td>$433,060</td>
-																			</tr>
-																			<tr>
-																				<th scope="row">5</th>
-																				<td>Airi Satou</td>
-																				<td>Accountant</td>
-																				<td>$162,700</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
 												   </div>
 													   <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 														 <div class="modal-dialog" role="document">
