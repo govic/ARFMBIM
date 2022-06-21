@@ -2,8 +2,8 @@
 module.exports = {
     // Set environment variables or hard-code here
     credentials: {
-        client_id: 'pTfgA3QSnko7H8A0b7ceGYicVEjCKXZ6',
-        client_secret: 'ysnxrLCFYFyBylq3',
+        client_id: 'wiqmJHyYf6k9WYYYUrNregL0ezHvWGrg',
+        client_secret: 'hcJSO40TQkuOWksk',
         callback_url: process.env.FORGE_CALLBACK_URL
     },
     scopes: {
@@ -13,9 +13,13 @@ module.exports = {
         public: ['viewables:read']
     }
 };
-
-
 /*
+
+
+
+  client_id: 'pTfgA3QSnko7H8A0b7ceGYicVEjCKXZ6',
+        client_secret: 'ysnxrLCFYFyBylq3',
+
 
     module.exports = {
     // Set environment variables or hard-code here
