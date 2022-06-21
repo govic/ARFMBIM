@@ -7,7 +7,7 @@ const { getClient, getInternalToken } = require('./common/oauth');
 const config = require('../config');
 
 let router = express.Router();
-
+const pool = require('../public/js/DBConnection');
 // Middleware for obtaining a token for each request.
 router.use(async (req, res, next) => {
     const token = await getInternalToken();
@@ -15,6 +15,18 @@ router.use(async (req, res, next) => {
     req.oauth_client = getClient();
     next();
 });
+
+//*************Insertar nuevo proyecto**************** */
+
+router.post('/insertProyecto', async (req, res, next) => {
+
+    
+  
+  });
+
+
+/********************************* */
+
 
 // GET /api/forge/oss/buckets - expects a query param 'id'; if the param is '#' or empty,
 // returns a JSON with list of buckets, otherwise returns a JSON with list of objects in bucket with given name.
