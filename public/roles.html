@@ -274,10 +274,10 @@
 								<!-- Tabs -->
 								<ul class="nav nav-tabs profile navtab-custom panel-tabs">
 									<li class="active">
-										<a href="#settings" data-toggle="tab" aria-expanded="true"> <span class="visible-xs"><i class="las la-cog tx-16 mr-1"></i></span> <span class="hidden-xs">TAREA POR ROL</span> </a>
+										<a href="#usuariorol" data-toggle="tab" aria-expanded="true"> <span class="visible-xs"><i class="las la-cog tx-16 mr-1"></i></span> <span class="hidden-xs">Usuarios Rol</span> </a>
 									</li>
 									<li class="">
-										<a href="#home" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="fa fa-align-right"></i></span> <span class="hidden-xs">TAREA ASOCIADA A OBJ. </span> </a>
+										<a href="#roles" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="fa fa-align-right"></i></span> <span class="hidden-xs">Roles del Sistema </span> </a>
 									</li>
 									
 									
@@ -286,248 +286,192 @@
 
 							<div class="tab-content">
 
-								<div class="tab-pane active" id="settings">
+								<div class="tab-pane active" id="usuariorol">
 									<form role ="form" >
 										<div class="form-group">
 											<label for="date_form" >NOMBRE</label>
 											<input type="text" id="nombre_rol" class="form-control">
-											<label for="date_form">FECHA</label>
-											<input type="date" id="fecha_rol" class="form-control">
+											<label for="date_form">Apellido</label>
+											<input type="text" id="apellido_rol" class="form-control">
+                                            <label for="date_form">E-Mail</label>
+											<input type="email" id="e_mail_rol" class="form-control">
+                                            <label for="date_form">Telefono</label>
+											<input type="text" id="telefono_rol" class="form-control">
 											<label for="rol_form">ROL</label>
 											<select name="ROL" id="rol_rol" class="form-control">
-												<option value="GENERAL">GENERAL</option>
-												<option value="ELECTRICO">CLIMATIZACIÓN</option>
-												<option value="SANITARIO">SANITARIO</option>
+												
 											</select>
-											<label for="descp_form">DESCRIPCION</label>
-											<input type="text" id="descripcion_rol" class="form-control">
-											<label for="recursos_form">RECURSOS</label>
-											<input type="text" id="recursos_rol" class="form-control">
 										</div> 
 
-										<button class="btn btn-primary waves-effect waves-light w-md" onclick="addTareaRol();">CREAR</button>
+										<button class="btn btn-primary waves-effect waves-light w-md" onclick="addUsuarioRol();">CREAR</button>
 									</form>
-								
+                                    <p></p><p></p>
+                                    <div class="card card-dashboard-map-one">
+                                        <label class="main-content-label">Usuarios Rol</label>
+                                      
+                                        <div class="">
+                                                     <div >
+                                                            <div class="container-fluid fill">
+                                                              <div class="row fill">
+                                                                <div class="col-sm-12 fill">
+                                                                  <div class="panel panel-default fill">
+                                                                    <div class="panel-heading" data-toggle="tooltip">
+                                                                     Usuarios Rol
+                                                                      <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+                                                                      <div class="card-body">
+                                                                         <div class="table-responsive">
+                                                                             <table class="table mg-b-0 text-md-nowrap" id="usuario_rol">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>Nombre</th>
+                                                                                         <th>Apellido</th>
+                                                                                         <th>E-email</th>
+                                                                                         <th>Telefono</th>
+                                                                                         <th>Rol</th>
+                                                                                         <th>Acción</th>
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                 <tbody>
+                                                                                     
+                                                                                     
+                                                                                 </tbody>
+                                                                             </table>
+                                                                         </div>
+                                                                     </div>
+                                                                     <!--
+                                                                      <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+                                                                        Nueva Carpeta
+                                                                      </button>
+                         
+                                                                      -->
+                                                                    </div>
+                                                                   
+                                                                  </div>
+                                                                </div>
+                                                                
+                                                                            
+                                                              </div>
+                                                            </div>
+                                                            
+                                    
+                                                       
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                
+                                                                    </div>
+                                                            <div class="col-sm-4">
+                                                                </div>
+                                                            <div class="col-sm-4">
+                                                                
+                         
+                                                            </div>
+                                                        </div>
+                                                     
+                                                        <br><br><br><br><br>
+                                                        <div class="row">
+                                                        
+                                                            
+                                                            <div class="col-sm-4">
+                                                               <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
+                                                            --></div>
+                                                        </div>
+                                                         
+                                                          </div>
+                                        </div>
+                                    </div>
 								</div>
-								<div class="tab-pane" id="home">
+								<div class="tab-pane" id="roles">
 
-									<div >
-										<div class="container-fluid fill">
-										  <div class="row fill">
-											<div class="col-sm-4 fill">
-											  <div class="panel panel-default fill">
-												<div class="panel-heading" data-toggle="tooltip">
-												  Proyectos
-												  <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
-												 
-												 <!--
-												  <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
-													Nueva Carpeta
-												  </button>
-	 
-												  -->
-												</div>
-												<div id="appBuckets">
-												 Arbol de Carpetas
-												</div>
-											  </div>
-											</div>
-											<div class="col-sm-7 fill">
-												<div id="forgeViewer" style="height: 400px !important;"></div>
-											</div>
-											             
-										  </div>
-										</div>
-									</div>
-										<form id="uploadFile" method='post' enctype="multipart/form-data">
-										  <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
-										</form>
-									<form role ="form" >
+                                    <form role ="form" >
 										<div class="form-group">
-											<label for="date_form">NOMBRE</label>
-											<input type="hidden" id="id_obj" class="form-control">
-											<input type="text" id="nombre_obj" class="form-control">
-											<label for="date_form">FECHA</label>
-											<input type="date" id="fecha_obj" class="form-control">
-											<label for="date_form">OBJETOS SELECCIONADOS</label>
-											<input type="text" id="objetos_obj" class="form-control">
-											<label for="rol_form">RESPONSABLE</label>
-											<select name="ROL"  id="responsable_obj" class="form-control">
-												<option value="Usuario1">USUARIO 1</option>
-												<option value="Usuario2">USUARIO 2</option>
-												<option value="Usuario3">USUARIO 3</option>
-											</select>
-											<label for="descp_form">DESCRIPCION</label>
-											<input type="text" id="descripcion_obj" class="form-control">
-											<label for="recursos_form">RECURSOS</label>
-											<input type="text" id="recursos_obj" class="form-control">
+											<label for="date_form" >NOMBRE</label>
+											<input type="text" id="nombre_rol_rol" class="form-control">
+											
+											
 										</div> 
 
-										<button class="btn btn-primary waves-effect waves-light w-md" onclick="addTareaObj()">CREAR</button>
+										<button class="btn btn-primary waves-effect waves-light w-md" onclick="addRol();">CREAR</button>
 									</form>
-								
+								<p></p><p></p>
+                                <div class="card card-dashboard-map-one">
+                                    <label class="main-content-label">Roles</label>
+                                  
+                                    <div class="">
+                                                 <div >
+                                                        <div class="container-fluid fill">
+                                                          <div class="row fill">
+                                                            <div class="col-sm-12 fill">
+                                                              <div class="panel panel-default fill">
+                                                                <div class="panel-heading" data-toggle="tooltip">
+                                                                  Roles
+                                                                  <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+                                                                  <div class="card-body">
+                                                                     <div class="table-responsive">
+                                                                         <table class="table mg-b-0 text-md-nowrap" id="roles_lista">
+                                                                             <thead>
+                                                                                 <tr>
+                                                                                     
+                                                                                     <th>Nombre</th>
+                                                                               
+                                                                                     <th>Accción</th>
+                                                                                 </tr>
+                                                                             </thead>
+                                                                             <tbody>
+                                                                                 
+                                                                                 
+                                                                             </tbody>
+                                                                         </table>
+                                                                     </div>
+                                                                 </div>
+                                                                 <!--
+                                                                  <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+                                                                    Nueva Carpeta
+                                                                  </button>
+                     
+                                                                  -->
+                                                                </div>
+                                                               
+                                                              </div>
+                                                            </div>
+                                                            
+                                                                        
+                                                          </div>
+                                                        </div>
+                                                        
+                                
+                                                   
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            
+                                                                </div>
+                                                        <div class="col-sm-4">
+                                                            </div>
+                                                        <div class="col-sm-4">
+                                                            
+                     
+                                                        </div>
+                                                    </div>
+                                                 
+                                                    <br><br><br><br><br>
+                                                    <div class="row">
+                                                    
+                                                        
+                                                        <div class="col-sm-4">
+                                                           <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
+                                                        --></div>
+                                                    </div>
+                                                     
+                                                      </div>
+                                    </div>
+                             </div>
 								</div>
 
 							</div>
 						</div>
  					</div>
  				</div>
-				 <div class="row row-sm">
-					<div class="col-md-12 col-lg-12 col-lg-12">
-						<div class="card card-dashboard-map-one">
-							   <label class="main-content-label">Tareas por Rol</label>
-							 
-							   <div class="">
-											<div >
-												   <div class="container-fluid fill">
-													 <div class="row fill">
-													   <div class="col-sm-12 fill">
-														 <div class="panel panel-default fill">
-														   <div class="panel-heading" data-toggle="tooltip">
-															 Tareas Por Rol
-															 <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
-															 <div class="card-body">
-																<div class="table-responsive">
-																	<table class="table mg-b-0 text-md-nowrap" id="tareas_rol">
-																		<thead>
-																			<tr>
-																				<th>Nombre</th>
-																				<th>Fecha</th>
-																				<th>Rol</th>
-																				<th>Descripción</th>
-																				<th>Recursos</th>
-																				<th>Acción</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			
-																			
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-															<!--
-															 <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
-															   Nueva Carpeta
-															 </button>
 				
-															 -->
-														   </div>
-														  
-														 </div>
-													   </div>
-													   
-																   
-													 </div>
-												   </div>
-												   
-						   
-											  
-											   <div class="row">
-												   <div class="col-sm-4">
-													   
-														   </div>
-												   <div class="col-sm-4">
-													   </div>
-												   <div class="col-sm-4">
-													   
 				
-												   </div>
-											   </div>
-											
-											   <br><br><br><br><br>
-											   <div class="row">
-											   
-												   
-												   <div class="col-sm-4">
-													  <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
-												   --></div>
-											   </div>
-												
-												 </div>
-							   </div>
-						   </div>
-					</div>
-				</div>
-				<div class="row row-sm">
-					<div class="col-md-12 col-lg-12 col-lg-12">
-						<div class="card card-dashboard-map-one">
-							   <label class="main-content-label">Tareas por Objectos</label>
-							 
-							   <div class="">
-											<div >
-												   <div class="container-fluid fill">
-													 <div class="row fill">
-													   <div class="col-sm-12 fill">
-														 <div class="panel panel-default fill">
-														   <div class="panel-heading" data-toggle="tooltip">
-															 Tareas Por Objetos
-															 <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
-															 <div class="card-body">
-																<div class="table-responsive">
-																	<table class="table mg-b-0 text-md-nowrap" id="tareas_objeto">
-																		<thead>
-																			<tr>
-																				
-																				<th>Nombre</th>
-																				<th>Fecha</th>
-																				<th>Objeto</th>
-																				<th>Responsable</th>
-																				<th>Descripción</th>
-																				<th>Recursos</th>
-																				<th>Accción</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			
-																			
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-															<!--
-															 <button class="btn btn-xs btn-theme02" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
-															   Nueva Carpeta
-															 </button>
-				
-															 -->
-														   </div>
-														  
-														 </div>
-													   </div>
-													   
-																   
-													 </div>
-												   </div>
-												   
-						   
-											  
-											   <div class="row">
-												   <div class="col-sm-4">
-													   
-														   </div>
-												   <div class="col-sm-4">
-													   </div>
-												   <div class="col-sm-4">
-													   
-				
-												   </div>
-											   </div>
-											
-											   <br><br><br><br><br>
-											   <div class="row">
-											   
-												   
-												   <div class="col-sm-4">
-													  <!-- <button class="btn btn-success btn-block"  onclick="cargarProyecto();" >Activar como proyecto Principal</button>
-												   --></div>
-											   </div>
-												
-												 </div>
-							   </div>
-						   </div>
-					</div>
-				</div>
 				 <!-- row opened -->
 		
 					<!-- /row -->
@@ -825,37 +769,34 @@
 		<script src="assets/js/jquery.vmap.sampledata.js"></script>
 
 	
-		<script src="js/ForgeTreeProyectos.js"></script>
-	    <script src="js/ForgeViewerProyectos.js"></script>
+	
 	    <script src="/js/handleselectionextension.js"></script>
 	    <script src="js/frappe-gantt.min.js"></script>
-	    <script src="js/atbim.js"></script>
+	   
 	  <!--  <script src="js/atbimDocking.js"></script>-->
 	  <script>
-////*********TAREAS OBJETO*************************************************///////////
-function addTareaObj(){
-			var nombre_obj      = $("#nombre_obj").val();
-			var fecha_obj = $("#fecha_obj").val();
-			var objetos_obj = $("#objetos_obj").val();
-			var responsable_obj = $( "#responsable_obj option:selected" ).text();
-			var descripcion_obj = $("#descripcion_obj").val();
-			var recursos_obj = $("#recursos_obj").val(); 
+////*********ADD USUARIO ROL*************************************************///////////
+function addUsuarioRol(){
+
+
+			var nombre_rol      = $("#nombre_rol").val();
+			var apellido_rol = $("#apellido_rol").val();
+			var e_mail_rol = $("#e_mail_rol").val();
+			var rol_rol = $( "#rol_rol option:selected" ).text();
+			var telefono_rol = $("#telefono_rol").val(); 
 			var id = Math.random()*100;
-
-			
-
-
 
 
 			jQuery.post({
-				url: '/inserTareaObjeto',
+				url: '/inserRolUsuario',
 				contentType: 'application/json',
-				data:  JSON.stringify({ 'id': ''+id+'','nombre':''+nombre_obj+'', 'fecha': ''+fecha_obj+'','descripcion': ''+descripcion_obj+'','recursos': ''+recursos_obj+'' ,'responsable': ''+responsable_obj+'','objetos': ''+objetos_obj+''}),
+				data:  JSON.stringify({ 'id': ''+id+'','nombre':''+nombre_rol+'', 'apellido': ''+apellido_rol+'','email': ''+e_mail_rol+'','rol': ''+rol_rol+'' ,'telefono': ''+telefono_rol+''}),
 				success: function (res) {
-				
+				alert("ok");
 					console.log("ENVIO OK");
+                    console.log(res);
 				//	alert();
-					window.location = window.location;
+				//	window.location = window.location;
 				
 			},error:function(e){
 				alert("s");
@@ -881,12 +822,12 @@ function visualizarObj(idObjetos){
 
 
 
-/////****************GET TAREA OBJETO******************************
+/////****************GET usuario rol******************************
 
-getTareaObjeto();
-function getTareaObjeto(){
+getRol();
+function getRol(){
 				jQuery.get({
-					url: '/listaTareaObj',
+					url: '/listaRol',
 					contentType: 'application/json',
 					
 					success: function (res) {
@@ -896,8 +837,10 @@ function getTareaObjeto(){
 					for(var i=0;i<res.length;i++){
 						cont = i+1;
 						console.log( res[i].id);
-						$('#tareas_objeto > tbody:last-child').append('<tr><td>'+res[i].nombre+'</td><td>'+res[i].fecha+'</td><td><button class=\'btn btn-primary btn-success\' onclick=\'visualizarObj('+res[i].objetos+')\'>visualizar</button></td><td>'+res[i].responsable+'</td><td>'+res[i].descripcion+'</td><td>'+res[i].recursos+'</td><td><button class=\'btn btn-primary btn-block\'  onclick=\'deleteTareaObjeto('+res[i].id+')\'>ELIMINAR</button></td></tr>');
-					}
+						$('#roles_lista > tbody:last-child').append('<tr><td>'+res[i].nombre+'</td><td><button class=\'btn btn-primary btn-block\'  onclick=\'deleteRol('+res[i].id+')\'>ELIMINAR</button></td></tr>');
+                        $('#rol_rol').append('<option value=\"'+res[i].nombre+'\">'+res[i].nombre+'</option>');
+                    
+                    }
 					
 
 					
@@ -909,10 +852,10 @@ function getTareaObjeto(){
 		}
 
 ////**********************************************************///////////
-		getTareaRol();
-		function getTareaRol(){
+getUsuarioRol();
+		function getUsuarioRol(){
 				jQuery.get({
-					url: '/listaTareaRol',
+					url: '/listaUsuarioRol',
 					contentType: 'application/json',
 					
 					success: function (res) {
@@ -922,7 +865,7 @@ function getTareaObjeto(){
 					for(var i=0;i<res.length;i++){
 						cont = i+1;
 						console.log( res[i].id);
-						$('#tareas_rol > tbody:last-child').append('<tr><td>'+res[i].nombre+'</td><td>'+res[i].fecha+'</td><td>'+res[i].rol+'</td><td>'+res[i].descripcion+'</td><td>'+res[i].recursos+'</td><td><button class=\'btn btn-primary btn-block\'  onclick=\'deleteTareaRol('+res[i].id+')\'>ELIMINAR</button></td></tr>');
+						$('#usuario_rol > tbody:last-child').append('<tr><td>'+res[i].nombre+'</td><td>'+res[i].apellido+'</td><td>'+res[i].email+'</td><td>'+res[i].telefono+'</td><td>'+res[i].rol+'</td><td><button class=\'btn btn-primary btn-block\'  onclick=\'deleteUsuarioRol('+res[i].id+')\'>ELIMINAR</button></td></tr>');
 					}
 					
 
@@ -934,9 +877,9 @@ function getTareaObjeto(){
 				});
 		}
 
-		function deleteTareaRol(id){
+		function deleteUsuarioRol(id){
 			jQuery.post({
-				url: '/deleteTareaRol',
+				url: '/deleteUsuarioRol',
 				contentType: 'application/json',
 				data:  JSON.stringify({ 'id': ''+id+'' }),
 
@@ -960,9 +903,9 @@ function getTareaObjeto(){
 
 		//////////***********DELETE TAREA OBJETO************///////////////
 
-		function deleteTareaObjeto(id){
+		function deleteRol(id){
 			jQuery.post({
-				url: '/deleteTareaObjeto',
+				url: '/deleteRol',
 				contentType: 'application/json',
 				data:  JSON.stringify({ 'id': ''+id+'' }),
 
@@ -987,23 +930,20 @@ function getTareaObjeto(){
 
 		////////////////////////////////////////
 			
-		function addTareaRol(){
-			var nombre_rol      = $("#nombre_rol").val();
-			var fecha_rol = $("#fecha_rol").val();
-			var rol_rol = $( "#rol_rol option:selected" ).text();
-			var descripcion_rol = $("#descripcion_rol").val();
-			var recursos_rol = $("#recursos_rol").val(); 
+		function addRol(){
+			var nombre_rol  = $("#nombre_rol_rol").val();
+			 
 			var id = Math.random()*100;
 
 			jQuery.post({
-				url: '/inserTareaRol',
+				url: '/insertRol',
 				contentType: 'application/json',
-				data:  JSON.stringify({ 'id': ''+id+'','nombre':''+nombre_rol+'', 'fecha': ''+fecha_rol+'','descripcion': ''+descripcion_rol+'','recursos': ''+recursos_rol+'' ,'rol': ''+rol_rol+''}),
+				data:  JSON.stringify({ 'id': ''+id+'','nombre':''+nombre_rol+''}),
 				success: function (res) {
 				
 					console.log("ENVIO OK");
-					//alert();
-					window.location = window.location;
+					alert("ok");
+				//	window.location = window.location;
 				
 			},error:function(e){
 			//	alert("s");
@@ -1012,57 +952,6 @@ function getTareaObjeto(){
 			}
 			});
 
-		}
-		getRol();
-		function getRol(){
-			$("#rol_rol").empty();
-			jQuery.get({
-					url: '/listaRol',
-					contentType: 'application/json',
-					
-					success: function (res) {
-					var cont = 1;
-					console.log("resultado");
-				console.log(res);
-				
-					for(var i=0;i<res.length;i++){
-						cont = i+1;
-						console.log( res[i].id);
-						$('#rol_rol').append('<option value ='+res[i].id+'>'+res[i].nombre+'</option>');
-					}
-					
-
-					
-				},error:function(e){
-					console.log("error envio");
-					console.log(e);
-				}
-				});
-		}
-		getUsuarioRol();
-		function getUsuarioRol(){
-				$("#responsable_obj").empty();
-				jQuery.get({
-					url: '/listaUsuarioRol',
-					contentType: 'application/json',
-					
-					success: function (res) {
-					var cont = 1;
-					console.log("resultado");
-				console.log(res);
-					for(var i=0;i<res.length;i++){
-						cont = i+1;
-						console.log( res[i].id);
-						$('#responsable_obj').append('<option value ='+res[i].id+'>'+res[i].nombre+' '+res[i].apellido+'  /  '+res[i].rol+'</option>');
-					}
-					
-
-					
-				},error:function(e){
-					console.log("error envio");
-					console.log(e);
-				}
-				});
 		}
 	</script>
 	</body>

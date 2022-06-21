@@ -1374,7 +1374,7 @@ function callProyectos(){
                    openViewer(res[i].urn);
                }
             }  
-            document.getElementById("proyectos_visor").innerHTML = dropdown;
+           // document.getElementById("proyectos_visor").innerHTML = dropdown;
          },
          error: function (err) {
            callProyectos();
@@ -1450,7 +1450,9 @@ function launchViewer(urn) {
     viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['Autodesk.DocumentBrowser', 'HandleSelectionExtension'] });
     viewer.start();
     var documentId = 'urn:' + urn;
-    
+    modelo_actual = urn;
+    console.log("URN SELECCIONADO");
+    console.log(modelo_actual);
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
    
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, (event) => { 
@@ -1483,12 +1485,14 @@ function launchViewer(urn) {
 
 // Detección de selección de elementos
       viewer.addEventListener(Autodesk.Viewing.SELECTION_CHANGED_EVENT,(event)=>{
+        resetInput();
         console.log("Seleccion!!!!!!!!!!!!!!!!!!!!!!!!");
         console.log(event);
         console.log(event.dbIdArray);
-        ids_seleccionados = event.dbIdArray;
+        ids_seleccionados = event.dbIdArray[0];
+        console.log(ids_seleccionados);
         document.getElementById("id_obj").value = ids_seleccionados;
-        
+        //setTareaObjeto(document.getElementById("id_obj").value);
         var a= event.dbIdArray;
         var acumulado_ids = "";
         for(let r =0; r<a.length;r++){
@@ -1514,7 +1518,7 @@ function launchViewer(urn) {
           //  console.log("toco");
         //    console.log(dbId);
             document.getElementById("propiedades_id").innerHTML = "";
-        
+           
         // console.log("ID PROPIEDAD");
       //  console.log(dbId.dbId);
         // console.log(dbId);

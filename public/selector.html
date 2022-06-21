@@ -91,11 +91,7 @@
 						
 						<li class="side-item side-item-category">Administración</li>
 						
-						<li class="slide">
-							<a class="side-menu__item"  href="#">
-								<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">Visualizador</span>
-							</a>
-						</li>
+						
 						
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="selector.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">BIM</span></a>
@@ -106,11 +102,12 @@
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="roles.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Roles</span></a>
 						</li>
+							<!--
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="calendario.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Calendario</span></a>
-						</li>
+						</li>-->
 						<li class="slide">
-							<a class="side-menu__item" data-toggle="slide" href="estadistica.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Estadísticas</span></a>
+							<a class="side-menu__item" data-toggle="slide" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Estadísticas</span></a>
 						</li>
 						
 						<li class="slide">
@@ -286,7 +283,7 @@
 																 <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
 																 <div class="card-body">
 																	<div class="table-responsive">
-																		<table class="table mg-b-0 text-md-nowrap">
+																		<table class="table mg-b-0 text-md-nowrap" id="lista_proyectos">
 																			<thead>
 																				<tr>
 																					<th>ID</th>
@@ -296,24 +293,7 @@
 																				</tr>
 																			</thead>
 																			<tbody>
-																				<tr>
-																					<th scope="row">1</th>
-																					<td>Novo Hotel</td>
-																					<td>Facility Management</td>
-																					<td>	
-																						<button class="btn btn-success btn-block"  onclick="window.location.href='/proyectos.html'">ENTRAR</button>
-																						<button class="btn btn-primary btn-block">ELIMINAR</button>
-																					</td>
-																				</tr>
-																				<tr>
-																					<th scope="row">2</th>
-																					<td>Novo Hotel 2</td>
-																					<td>Facility Management 2</td>
-																					<td>	
-																						<button class="btn btn-success btn-block" onclick="window.location.href='/proyectos.html'">ENTRAR</button>
-																						<button class="btn btn-primary btn-block">ELIMINAR</button>
-																					</td>
-																				</tr>
+																				
 																				
 																			</tbody>
 																		</table>
@@ -344,24 +324,24 @@
 										
 
 															<div class="tab-pane active" id="settings">
-																<form role="form" action="/profile" method="POST">
+																
 																	<div class="form-group">
 																		<label for="FullName">Nombre Proyecto</label>
-																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																		<input type="text" value="" id="nombre" class="form-control" name="fullname">
 																	</div>
 																	<div class="form-group">
 																		<label for="FullName">Anotaciones</label>
-																		<input type="text" value="" id="FullName" class="form-control" name="fullname">
+																		<input type="text" value="" id="anotaciones" class="form-control" name="fullname">
 																
 																	</div>
 																	<div class="form-group">
 																		<label for="FullName">Descripcion</label>
-																		<textarea class="form-control" name="fullname"></textarea>
+																		<textarea class="form-control" id="descripcion"></textarea>
 																	</div>
 																	
 																	
-																	<button class="btn btn-primary waves-effect waves-light w-md" type="submit">Guardar</button>
-																</form>
+																	<button class="btn btn-primary waves-effect waves-light w-md" type="button" onclick="addProyecto()">Guardar</button>
+																
 															</div>
 															<div class="tab-pane " id="home">
 																<h4 class="tx-15 text-uppercase mb-3">Datos</h4>
@@ -662,7 +642,7 @@
 
 		<!-- JQuery min js -->
 		<!--<script src="assets/plugins/jquery/jquery.min.js"></script> -->
-
+		
 	
 		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -726,12 +706,91 @@
 		<script src="assets/js/jquery.vmap.sampledata.js"></script>
 
 	
-		<script src="js/ForgeTreeProyectos.js"></script>
+	<!--	<script src="js/ForgeTreeProyectos.js"></script>-->3
 	    <script src="js/ForgeViewer.js"></script>
 	    <script src="/js/handleselectionextension.js"></script>
 	    <script src="js/frappe-gantt.min.js"></script>
 	    <script src="js/atbim.js"></script>
 	  <!--  <script src="js/atbimDocking.js"></script>-->
+	  <script>
+		//CREAR PROYECTO
+	
 
+			getProyectos();
+		
+		
+		function getProyectos(){
+			jQuery.get({
+				url: '/listaProyecto',
+				contentType: 'application/json',
+				
+				success: function (res) {
+				var cont = 1;
+			
+			     for(var i=0;i<res.length;i++){
+					 cont = i+1;
+					console.log( res[0].id_proyecto);
+					$('#lista_proyectos > tbody:last-child').append('<tr><td>'+cont+'</td><td>'+res[i].nombre+'</td><td>'+res[i].descripcion+'</td><td><button class=\'btn btn-success btn-block\'  onclick=\'window.location.href=\"/proyectos.html\"\'>ENTRAR</button><button class=\'btn btn-primary btn-block\'  onclick=\'deleteProyecto('+res[i].id_proyecto+')\'>ELIMINAR</button></td></tr>');
+				 }
+				
+
+				
+			},error:function(e){
+				console.log("error envio");
+				console.log(e);
+			}
+			});
+		}
+		function deleteProyecto(id_proyecto){
+			jQuery.post({
+				url: '/deleteProyecto',
+				contentType: 'application/json',
+				data:  JSON.stringify({ 'id_proyecto': ''+id_proyecto+'' }),
+
+				success: function (res) {
+				
+				console.log("RESULTADO Get server");
+				console.log(res);
+				console.log(typeof res);
+				console.log(res.length);
+				console.log(typeof res[0]);
+				// $('#vistas_previas').innerHTML = "";
+				console.log("RESULTADO Get PLAN SERVER");
+				location.reload();
+				
+			},error:function(e){
+				console.log("error envio");
+				console.log(e);
+			}
+			});
+		}
+		function addProyecto(){
+
+			var nombre      = $("#nombre").val();
+			var anotaciones = $("#anotaciones").val();
+			var descripcion = $("#descripcion").val();
+			var id = Math.random()*100;
+	
+			jQuery.post({
+				url: '/insertProyecto',
+				contentType: 'application/json',
+				data:  JSON.stringify({ 'id_proyecto': ''+id+'','nombre':''+nombre+'', 'anotaciones': ''+anotaciones+'','descripcion': ''+descripcion+'' }),
+				success: function (res) {
+				
+					console.log("ENVIO OK");
+					alert();
+					window.location = window.location;
+				
+			},error:function(e){
+				alert("s");
+				console.log("error envio");
+				console.log(e);
+			}
+			});
+			
+		}
+
+		
+	</script>
 	</body>
 </html>

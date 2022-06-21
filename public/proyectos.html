@@ -91,11 +91,7 @@
 						
 						<li class="side-item side-item-category">Administración</li>
 						
-						<li class="slide">
-							<a class="side-menu__item"  href="#">
-								<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">Visualizador</span>
-							</a>
-						</li>
+						
 						
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="selector.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">BIM</span></a>
@@ -106,9 +102,10 @@
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="roles.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Roles</span></a>
 						</li>
+							<!--
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="calendario.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Calendario</span></a>
-						</li>
+						</li>-->
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="estadistica.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3"/><path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/></svg><span class="side-menu__label">Estadísticas</span></a>
 						</li>
@@ -378,52 +375,140 @@
 																	<h4 class="card-title mg-b-0">Administración de Datos</h4>
 																	<i class="mdi mdi-dots-horizontal text-gray"></i>
 																</div>
-																<p class="tx-12 tx-gray-500 mb-2">Seleccione Proyecto
+															<!--	<p class="tx-12 tx-gray-500 mb-2">Seleccione Proyecto
 																		<select id="proyectos_disponibles"></select>
+																		<button class="btn btn-success btn-block"  onclick="cargaIds();" >Generar </button>
+															-->
 															</div>
 															<div class="card-body">
 																<div class="table-responsive">
-																	<table class="table table-hover mb-0 text-md-nowrap">
+																	<div class="main-content-label mg-b-5">
+																		Ingreso de DATA BIM
+																	</div>
+																	<p class="mg-b-20">Selecciona objetos en el visualizador para añadir datos.</p>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<label for="date_form" >ID</label>
+																			<input  type="text" id="id_obj" class="form-control" readonly>
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Familia</label>
+																			<input type="text" id="familia_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Nivel</label>
+																			<input type="text" id="nivel_obj" class="form-control">
+																		</div>
+																	</div>
+																	<p></p>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<label for="date_form" >Tipo</label>
+																			<input  type="text" id="tipo_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Nombre Elemento</label>
+																			<input type="text" id="nombre_elemento_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Marca</label>
+																			<input type="text" id="marca_obj" class="form-control">
+																		</div>
+																	</div>
+																	<p></p>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<label for="date_form" >Modelo</label>
+																			<input  type="text" id="modelo_obj" class="form-control" >
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Manual</label>
+																			<input type="text" id="manual_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Fecha Instalación</label>
+																			<input type="date" id="fecha_instalacion_obj" class="form-control">
+																		</div>
+																	</div>
+																	<p></p>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<label for="date_form" >Fecha Última instalación</label>
+																			<input  type="date" id="fecha_ultima_instalacion_obj" class="form-control" >
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Periodicidad Mantención</label>
+																			<input type="text" id="periodicidad_mantencion_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Fecha Próxima Mantención</label>
+																			<input type="date" id="fecha_proxima_mantencion_obj" class="form-control">
+																		
+																		</div>
+																	</div>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<label for="date_form" >Responsable Mantención</label>
+																			<input  type="text" id="responsable_mantencion_obj" class="form-control" >
+																			<input  type="hidden" id="edicion_data" >
+																			<input  type="hidden" id="edicion_data2" >
+																			<input  type="hidden" id="estadoEnvio" value="0" >
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">Costo Mantención</label>
+																			<input type="text" id="costo_mantencion_obj" class="form-control">
+																		</div>
+																		<div class="col-lg mg-t-10 mg-lg-t-0">
+																			<label for="date_form">HH</label>
+																			<input type="text" id="hh_obj" class="form-control">
+																		</div>
+																	</div>
+																	<div class="row row-sm">
+																		<div class="col-lg">
+																			<button type="button" class="btn btn-primary" onclick="saveBimData();">Guardar Datos</button>
+																	<br>
+																		</div>
+																		<p></p>
+																	</div>
+																	</div>
+																
+																</div>
+															</div>
+															<div class="card-body">
+																<div class="table-responsive">
+																	<table class="table table-hover mb-0 text-md-nowrap" id="tablaDataBIM">
 																		<thead>
 																			<tr>
 																				<th>ID</th>
-																				<th>COL 1</th>
-																				<th>COL 2</th>
-																				<th>COL 3</th>
+																				<th>Familia</th>
+																				<th>Nivel</th>
+																				<th>Tipo</th>
+																				<th>Nombre Elemento</th>
+																				<th>Marca</th>
+																				<th>Modelo</th>
+																				<th>Manual de Instalacion</th>
+																				<th>Fecha Instalacion</th>
+																				<th>Fecha última Mantención</th>
+																				<th>Periodicidad Mantención</th>
+																				<th>Fecha Proxima Mantención</th>
+																				<th>Responsable Mantención</th>
+																				<th>Costo Mantención</th>
+																				<th>HH</th>
+																				<th>ACCION</th>
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<tr>
-																				<th scope="row">1</th>
-																				<td> </td>
-																				<td> </td>
-																				<td> </td>
-																			</tr>
-																			<tr>
-																				<th scope="row">2</th>
-																				<td> </td>
-																				<td> </td>
-																				<td> </td>
-																			</tr>
-																			<tr>
-																				<th scope="row">3</th>
-																				<td> </td>
-																				<td> </td>
-																				<td> </td>
-																			</tr>
 																			
-																			<tr>
-																				<th scope="row">5</th>
-																				<td> </td>
-																				<td> </td>
-																				<td> </td>
-																			</tr>
+																			
 																		</tbody>
 																	</table>
 																</div>
 															</div>
 														</div>
 													</div>
+													<input type="hidden" id="objetos_obj">
+													<input type="hidden" id="propiedades_id">
+													
 												   </div>
 													   <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 														 <div class="modal-dialog" role="document">
@@ -443,6 +528,25 @@
 														   </div>
 														 </div>
 													   </div>
+
+													   <div class="modal fade" id="errormsj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+														<div class="modal-dialog" role="document">
+														  <div class="modal-content">
+															<div class="modal-header">
+															  
+															  <br>
+															  <!-- <h4 class="modal-title" id="myModalLabel">Crear Nueva Carpeta</h4>
+															  --></div>
+															<div class="modal-body">
+																<h4>Debe seleccionar un objeto del proyecto e ingresar su nombre</h4>
+															</div>
+															<div class="modal-footer">
+															  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+															  
+															</div>
+														  </div>
+														</div>
+													  </div>
 													 </div>
 								   </div>
 							   </div>
@@ -681,7 +785,228 @@
 
 		<!-- JQuery min js -->
 		<!--<script src="assets/plugins/jquery/jquery.min.js"></script> -->
+		<script> 
+		/*	    consulta_filtro([]).then((data) => {
+					let keys = Object.keys(data);
+					
+					let dbIds = data[clave].dbIds;                        
+						console.log("IDS TOTAL");
+						console.log(dbIds);
+					});
+		*/
+		</script>
 
+		<script>
+			getDataBIM();
+
+			 
+			function getDataBIM(){
+				jQuery.get({
+					url: '/getDataBIM',
+					contentType: 'application/json',
+					success: function (res) {
+					
+					var cont = 1;
+					console.log("resultado");
+					console.log(res);
+					for(var i=0;i<res.length;i++){
+						cont = i+1;
+						console.log( res[i].id);
+						$('#tablaDataBIM > tbody:last-child').append('<tr><td>'+res[i].id_obj+'</td><td>'+res[i].familia_obj+'</td><td><button class=\'btn btn-primary btn-success\' onclick=\'visualizarObj('+res[i].id_obj+')\'>visualizar</button><p></br><button class=\'btn btn-primary btn-success\'  onclick=\'setTareaObjeto('+res[i].id_obj+')\'>Editar / Abrir modelo</button></td><td>'+res[i].nivel_obj+'</td><td>'+res[i].tipo_obj+'</td><td>'+res[i].nombre_elemento_obj+'</td><td>'+res[i].marca_obj+'</td><td>'+res[i].modelo_obj+'</td><td>'+res[i].manual_obj+'</td><td>'+res[i].fecha_instalacion_obj+'</td><td>'+res[i].fecha_ultima_instalacion_obj+'</td><td>'+res[i].periodicidad_mantencion_obj+'</td><td>'+res[i].fecha_proxima_mantencion_obj+'</td><td>'+res[i].costo_mantencion_obj+'</td><td>'+res[i].hh_obj+'</td><td><button class=\'btn btn-primary btn-block\'  onclick=\'deleteDATABIM('+res[i].id_obj+')\'>ELIMINAR</button></td><td></td></tr>');
+					}
+					
+				},error:function(e){
+				//	alert("s");
+					console.log("error envio");
+					console.log(e);
+				}
+			});
+			}
+			function resetInput(){
+				$("#id_obj").val("");
+				$("#familia_obj").val("");
+				$("#nivel_obj").val("");
+				$( "#tipo_obj" ).val("");;
+				$("#nombre_elemento_obj").val("");
+				$("#marca_obj").val(""); 
+				$("#modelo_obj").val(""); 
+				$("#manual_obj").val("");
+				$("#fecha_instalacion_obj").val("");  
+				$("#fecha_ultima_instalacion_obj").val(""); 
+				$("#periodicidad_mantencion_obj").val("");
+				$("#fecha_proxima_mantencion_obj").val("");
+				$("#costo_mantencion_obj").val("");
+				$("#responsable_mantencion_obj").val("");
+				$("#hh_obj").val("");
+				$("#estadoEnvio").val("");
+			}
+			function setTareaObjeto(id_obj){
+				$("#estadoEnvio").val(1);
+			//	resetInput();
+				jQuery.post({
+					url: '/getTareaData',
+					contentType: 'application/json',
+					data:  JSON.stringify({ 'id': ''+id_obj+'' }),
+					success: function (res) {
+					var cont = 1;
+					console.log("resultado");
+					console.log(res);
+					for(var i=0;i<res.length;i++){
+						cont = i+1;
+						console.log( res[i].id);
+
+						$("#id_obj").val(res[i].id_obj);
+						$("#familia_obj").val(res[i].familia_obj);
+						$("#nivel_obj").val(res[i].nivel_obj);
+						$( "#tipo_obj" ).val(res[i].tipo_obj);
+						$("#nombre_elemento_obj").val(res[i].nombre_elemento_obj);
+						$("#marca_obj").val(res[i].marca_obj); 
+						$("#modelo_obj").val(res[i].modelo_obj); 
+						$("#manual_obj").val(res[i].manual_obj);
+						$("#fecha_instalacion_obj").val(res[i].fecha_instalacion_obj);  
+						$("#fecha_ultima_instalacion_obj").val(res[i].fecha_ultima_instalacion_obj); 
+						$("#periodicidad_mantencion_obj").val(res[i].periodicidad_mantencion_obj);
+						$("#fecha_proxima_mantencion_obj").val(res[i].fecha_proxima_mantencion_obj);
+						$("#costo_mantencion_obj").val(res[i].costo_mantencion_obj); 
+						$("#responsable_mantencion_obj").val(res[i].responsable_mantencion_obj);
+						$("#hh_obj").val(res[i].hh_obj);
+						$("#estadoEnvio").val(1);
+						launchViewer(res[i].modelo_seleccionado);
+						visualizarObj(res[i].id_obj);
+				}
+					
+
+					
+				},error:function(e){
+					console.log("error envio");
+					console.log(e);
+				}
+				});
+			}
+			function visualizarObj(idObjetos){
+				let d = ""+idObjetos;
+				var arr = d.split(",");
+				var ids = [];
+				for(var a = 0; a<arr.length;a++){
+					ids.push(parseInt(arr[a]));
+				}
+				viewer.isolate(ids);
+				viewer.fitToView(ids, viewer.model);
+			}
+
+
+			function deleteDATABIM(id){
+				jQuery.post({
+					url: '/deleteDataBIM',
+					contentType: 'application/json',
+					data:  JSON.stringify({ 'id': ''+id+'' }),
+
+					success: function (res) {
+					
+					console.log("RESULTADO Get server");
+					console.log(res);
+					console.log(typeof res);
+					console.log(res.length);
+					console.log(typeof res[0]);
+					// $('#vistas_previas').innerHTML = "";
+					console.log("RESULTADO Get PLAN SERVER");
+					location.reload();
+					
+				},error:function(e){
+					console.log("error envio");
+					console.log(e);
+				}
+				});
+			}
+			function saveBimData(){
+				var tipo_envio = $("#estadoEnvio").val();
+				console.log("modelo seleccionado");
+				console.log(modelo_actual);
+				//alert(modelo_actual);
+				//alert(tipo_envio);
+					if(tipo_envio == 0){
+						var id_obj      = $("#id_obj").val();
+						var familia_obj = $("#familia_obj").val();
+						var nivel_obj = $("#nivel_obj").val();
+						var tipo_obj = $( "#tipo_obj" ).val();
+						var nombre_elemento_obj = $("#nombre_elemento_obj").val();
+						var marca_obj = $("#marca_obj").val(); 
+						var modelo_obj = $("#modelo_obj").val(); 
+						var manual_obj = $("#manual_obj").val();
+						var fecha_instalacion_obj = $("#fecha_instalacion_obj").val();  
+						var fecha_ultima_instalacion_obj = $("#fecha_ultima_instalacion_obj").val(); 
+						var periodicidad_mantencion_obj= $("#periodicidad_mantencion_obj").val();
+						var fecha_proxima_mantencion_obj =  $("#fecha_proxima_mantencion_obj").val();
+						var costo_mantencion_obj = $("#costo_mantencion_obj").val();
+						var hh_obj=  $("#hh_obj").val();
+						var responsable_mantencion_obj = $('#responsable_mantencion_obj').val();
+						var id = Math.random()*100;
+
+						if((id_obj ==0 || id_obj =="")|| nombre_elemento_obj == ""){
+							$('#errormsj').modal('toggle');
+						}else{
+							jQuery.post({
+							url: '/inserBIMData',
+							contentType: 'application/json',
+							data:  JSON.stringify({ 'id': ''+id+'','id_obj':''+id_obj+'','familia_obj':''+familia_obj+'', 'nivel_obj': ''+nivel_obj+'','tipo_obj': ''+tipo_obj+'','nombre_elemento_obj': ''+nombre_elemento_obj+'' ,'marca_obj': ''+marca_obj+'','modelo_obj': ''+modelo_obj+'','manual_obj': ''+manual_obj+'','fecha_instalacion_obj': ''+fecha_instalacion_obj+'','fecha_ultima_instalacion_obj': ''+fecha_ultima_instalacion_obj+'','periodicidad_mantencion_obj': ''+periodicidad_mantencion_obj+'','fecha_proxima_mantencion_obj': ''+fecha_proxima_mantencion_obj+'','hh_obj': ''+hh_obj+'','responsable_mantencion_obj': ''+responsable_mantencion_obj+'','modelo_seleccionado': ''+modelo_actual+'','costo_mantencion_obj': ''+costo_mantencion_obj+''}),
+							success: function (res) {
+							
+								console.log("ENVIO OK");
+							//	alert();
+								window.location = window.location;
+							
+							},error:function(e){
+							//	alert("s");
+								console.log("error envio");
+								console.log(e);
+							}
+						});
+							
+						}
+						
+				}else{
+
+					    var id_obj      = $("#id_obj").val();
+						var familia_obj = $("#familia_obj").val();
+						var nivel_obj = $("#nivel_obj").val();
+						var tipo_obj = $( "#tipo_obj" ).val();
+						var nombre_elemento_obj = $("#nombre_elemento_obj").val();
+						var marca_obj = $("#marca_obj").val(); 
+						var modelo_obj = $("#modelo_obj").val(); 
+						var manual_obj = $("#manual_obj").val();
+						var fecha_instalacion_obj = $("#fecha_instalacion_obj").val();  
+						var fecha_ultima_instalacion_obj = $("#fecha_ultima_instalacion_obj").val(); 
+						var periodicidad_mantencion_obj= $("#periodicidad_mantencion_obj").val();
+						var fecha_proxima_mantencion_obj =  $("#fecha_proxima_mantencion_obj").val();
+						var costo_mantencion_obj = $("#costo_mantencion_obj").val();
+						var responsable_mantencion_obj = $('#responsable_mantencion_obj').val();
+						var hh_obj=  $("#hh_obj").val();
+
+						
+						jQuery.post({
+							url: '/setDATABIM',
+							contentType: 'application/json',
+							data:  JSON.stringify({ 'id': ''+id+'','id_obj':''+id_obj+'','familia_obj':''+familia_obj+'', 'nivel_obj': ''+nivel_obj+'','tipo_obj': ''+tipo_obj+'','nombre_elemento_obj': ''+nombre_elemento_obj+'' ,'marca_obj': ''+marca_obj+'','modelo_obj': ''+modelo_obj+'','manual_obj': ''+manual_obj+'','fecha_instalacion_obj': ''+fecha_instalacion_obj+'','fecha_ultima_instalacion_obj': ''+fecha_ultima_instalacion_obj+'','periodicidad_mantencion_obj': ''+periodicidad_mantencion_obj+'','fecha_proxima_mantencion_obj': ''+fecha_proxima_mantencion_obj+'','hh_obj': ''+hh_obj+'','responsable_mantencion_obj': ''+responsable_mantencion_obj+'','costo_mantencion_obj': ''+costo_mantencion_obj+'','modelo_seleccionado': ''+modelo_actual+''}),
+							success: function (res) {
+							
+								console.log("ENVIO OK");
+							//	alert();
+								window.location = window.location;
+							
+							},error:function(e){
+							//	alert("s");
+								console.log("error envio");
+								console.log(e);
+							}
+						});
+
+				}
+				
+
+				
+
+			}
+		</script>
 	
 		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -746,7 +1071,9 @@
 
 	
 		<script src="js/ForgeTreeProyectos.js"></script>
-	    <script src="js/ForgeViewer.js"></script>
+	<script src="js/scripts.js"></script>
+	
+ <script src="js/ForgeViewerProyectos.js"></script>
 	    <script src="/js/handleselectionextension.js"></script>
 	    <script src="js/frappe-gantt.min.js"></script>
 	    <script src="js/atbim.js"></script>

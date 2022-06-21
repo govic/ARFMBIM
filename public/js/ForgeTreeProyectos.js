@@ -2,6 +2,7 @@ var MyVars = {
   keepTrying: true,
   ajaxCalls: []
 };
+var modelo_actual;
 
 $(document).ready(function () {
  prepareAppBucketTree();
@@ -50,6 +51,9 @@ $(document).ready(function () {
 function savePoryecto(){
 
 }
+function closeAsignacion(){
+  $('#modaldemo10').modal("toggle");
+}
 function cargarProyecto(){
   
   var q =  document.getElementById("proyectos_disponibles").value;
@@ -59,13 +63,14 @@ function cargarProyecto(){
   console.log(q);
   console.log("DATA IDS");
   console.log(q);
-
+ 
   jQuery.post({
     url: '/vista',
     contentType: 'application/json',
     data:  JSON.stringify({ 'nombre': q}),
     success: function (res) {
-      
+      $('#modaldemo10').modal("toggle");
+   
     },
   });
 
@@ -96,6 +101,9 @@ function callProyectosSeleccion(){
      })
 }
 function openViewer(urn){
+  modelo_actual = urn;
+  console.log("URN SELECCIONADO");
+  console.log(urn);
    launchViewer(urn);
     getForgeToken(function (access_token) {
         jQuery.ajax({
